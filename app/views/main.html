@@ -1,4 +1,4 @@
-<nav class="navigation-bar dark">
+<nav class="navigation-bar dark" style="position: fixed; top: 0px;">
     <nav class="navigation-bar-content">
         <item class="element">
             SSD XML Wording Editor v0.0.1
@@ -22,19 +22,17 @@
     </nav>
 </nav>
 
-<table class="table hovered">
+<table class="table hovered" style="margin-top: 45px;">
     <thead>
         <tr>
-            <th class="span4">Name</th>
-            <th class="span8">Value</th>
+            <th style="width: 300px;">Name</th>
+            <th>Value</th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="row in xml_string_tag_store">
-            <th style="text-align: left;">{{row.name}}</th>
-            <td style="text-align: left;">
-                {{row.value}}
-            </td>
+            <th style="text-align: left; color: #1e7145;">{{row.name}}</th>
+            <td style="text-align: left; color: #2b5797;" contenteditable="true">{{row.value}}</td>
         </tr>
     </tbody>
 </table>

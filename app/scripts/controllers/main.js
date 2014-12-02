@@ -67,4 +67,8 @@ angular.module('appWordingEditorApp')
             reader.readAsText(new_value);
         }
     }, true);
+
+    // $scope.$watch('xml_string_tag_store', function(new_value, old_value){
+    //     console.log(new_value);
+    // });
   });
