@@ -6,14 +6,18 @@
 
         <item class="element-divider"></item>
 
-        <a class="element brand place-right" href="#">
+        <!--
+        <a class="element brand place-right">
             <span class="icon-spin"></span>
         </a>
-        <a class="element brand place-right" href="#" ng-click="open_file();">
-            <span class="icon-folder"></span>
-        </a>
-        <a class="element brand place-right" href="#">
+        -->
+
+        <a class="element brand place-right" ng-click="download_xml()">
             <span class="icon-download"></span>
+        </a>
+
+        <a class="element brand place-right" ng-click="open_file();">
+            <span class="icon-folder"></span>
         </a>
 
         <code style="display: none;">
@@ -32,7 +36,10 @@
     <tbody>
         <tr ng-repeat="row in xml_string_tag_store">
             <th style="text-align: left; color: #1e7145;">{{row.name}}</th>
-            <td style="text-align: left; color: #2b5797;" contenteditable="true">{{row.value}}</td>
+            <!-- <td style="text-align: left; color: #2b5797;" contenteditable="true">{{row.value}}</td> -->
+            <td style="text-align: left; color: #2b5797;">
+                <textarea style="text-align: left; color: #2b5797; width: 100%; border-width: 0px; resize:vertical;" contenteditable="true" ng-model="row.value"></textarea>
+            </td>
         </tr>
     </tbody>
 </table>
