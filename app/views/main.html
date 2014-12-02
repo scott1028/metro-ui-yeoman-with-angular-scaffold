@@ -1,24 +1,40 @@
 <nav class="navigation-bar dark">
     <nav class="navigation-bar-content">
-        <item class="element">SSD XML Wording Editor v0.0.1</item>
+        <item class="element">
+            SSD XML Wording Editor v0.0.1
+        </item>
+
         <item class="element-divider"></item>
-        <a class="element brand place-right" href="#"><span class="icon-spin"></span></a>
-        <a class="element brand place-right" href="#"><span class="icon-folder"></span></a>
-        <a class="element brand place-right" href="#"><span class="icon-download"></span></a>
+
+        <a class="element brand place-right" href="#">
+            <span class="icon-spin"></span>
+        </a>
+        <a class="element brand place-right" href="#" ng-click="open_file();">
+            <span class="icon-folder"></span>
+        </a>
+        <a class="element brand place-right" href="#">
+            <span class="icon-download"></span>
+        </a>
+
+        <code style="display: none;">
+            <input type="file" id="input_file" file-model="input_file" />
+        </code>
     </nav>
 </nav>
 
 <table class="table hovered">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Value</th>
+            <th class="span4">Name</th>
+            <th class="span8">Value</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>2</td>
+        <tr ng-repeat="row in xml_string_tag_store">
+            <th style="text-align: left;">{{row.name}}</th>
+            <td style="text-align: left;">
+                {{row.value}}
+            </td>
         </tr>
     </tbody>
 </table>
