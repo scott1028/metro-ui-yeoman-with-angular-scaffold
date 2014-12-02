@@ -9,9 +9,11 @@
 }
 
 /* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+body, html {
+  // padding-top: 20px;
+  // padding-bottom: 20px;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -69,7 +71,8 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    // max-width: 730px;
+    width: 100%!important;
   }
 
   /* Remove the padding we set earlier */
