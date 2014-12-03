@@ -41,7 +41,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="row in xml_string_tag_store" name="{{row.name}}">
+        <tr ng-repeat="row in xml_string_tag_store" name="{{(row.name || '') + (row.value || '')}}">
             <th style="text-align: left; color: #1e7145; padding: auto; min-height: 35px;">{{row.name}}</th>
             <!-- <td style="text-align: left; color: #2b5797;" contenteditable="true">{{row.value}}</td> -->
             <td style="text-align: left; color: #2b5797; padding: 0px; min-height: 35px;">
