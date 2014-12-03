@@ -20,6 +20,13 @@
             <span class="icon-folder"></span>
         </a>
 
+        <item class="element place-right">
+            <div class="input-control text" data-role="input-control">
+                <input type="text" ng-model="filter_name">
+                <button class="btn-clear" ng-click="clear_filter_name();"></button>
+            </div>
+        </item>
+
         <code style="display: none;">
             <input type="file" id="input_file" file-model="input_file" />
         </code>
@@ -34,7 +41,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="row in xml_string_tag_store">
+        <tr ng-repeat="row in xml_string_tag_store" name="{{row.name}}">
             <th style="text-align: left; color: #1e7145; padding: auto; min-height: 35px;">{{row.name}}</th>
             <!-- <td style="text-align: left; color: #2b5797;" contenteditable="true">{{row.value}}</td> -->
             <td style="text-align: left; color: #2b5797; padding: 0px; min-height: 35px;">

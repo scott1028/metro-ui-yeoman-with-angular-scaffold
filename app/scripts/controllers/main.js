@@ -23,7 +23,8 @@ angular.module('appWordingEditorApp')
             var value = elm.textContent;
 
             if(name && name != name.trim()){
-                alert('XML File Format Error.')
+                alert('XML File Format Error.');
+                $scope.xml_string_tag_store = [];
                 return;
             };
 
@@ -75,6 +76,22 @@ angular.module('appWordingEditorApp')
         };
     };
 
+    //
+    $scope.clear_filter_name = function(){
+        $scope.filter_name = '';
+    };
+
+    // 
+    $scope.filter_data_by_name = function(){
+        if($scope.filter_name != ''){
+            angular.element('tr[name]').show();
+            angular.element('tr:not([name*=' + $scope.filter_name + '])').hide();
+        }
+        else{
+            angular.element('tr[name]').show();
+        };
+    };
+
     // 
     $scope.init = function(){
         $scope.input_file = null;
@@ -82,6 +99,7 @@ angular.module('appWordingEditorApp')
         $scope.xml = null;
         $scope.xml_string_tag_store = [];
         $scope.xml_string_for_download = '';
+        $scope.filter_name = '';
     };
 
     // 
@@ -117,4 +135,8 @@ angular.module('appWordingEditorApp')
             $scope.xml_string_for_download = xml_parser.serializeToString($scope.xml);
         };
     }, true);
+
+    $scope.$watch('filter_name', function(new_value, old_value){
+        $scope.filter_data_by_name();
+    });
   });
