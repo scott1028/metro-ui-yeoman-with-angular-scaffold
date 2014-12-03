@@ -22,6 +22,11 @@ angular.module('appWordingEditorApp')
             var name = elm.getAttribute('name');
             var value = elm.textContent;
 
+            if(name && name != name.trim()){
+                alert('XML File Format Error.')
+                return;
+            };
+
             $scope.xml_string_tag_store.push({
                 name: name,
                 value: value.replace(/\\n/g, '\n')
@@ -101,8 +106,11 @@ angular.module('appWordingEditorApp')
         if(new_value && new_value.length > 0){
             for(var i in new_value){
                 if(new_value[i] != old_value[i]){
-                    $scope.xml.querySelector('[name=' + new_value[i].name + ']').textContent = new_value[i].value.replace(/\n/g, '\\n');
-                }
+                    var elm = $scope.xml.querySelector('[name=' + new_value[i].name + ']');
+                    if(elm && elm.textContent){
+                        elm.textContent = new_value[i].value.replace(/\n/g, '\\n').trim();
+                    };
+                };
             };
 
             var xml_parser = new XMLSerializer();
