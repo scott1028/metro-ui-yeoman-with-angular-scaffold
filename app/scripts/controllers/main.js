@@ -84,11 +84,11 @@ angular.module('appWordingEditorApp')
     // 
     $scope.filter_data_by_name = function(){
         if($scope.filter_name != ''){
-            angular.element('tr[name]').show();
-            angular.element('tr:not([name*=' + $scope.filter_name + '])').hide();
+            angular.element('tbody>tr[name]').show();
+            angular.element('tbody>tr:not([name*=' + $scope.filter_name + '])').hide();
         }
         else{
-            angular.element('tr[name]').show();
+            angular.element('tbody>tr[name]').show();
         };
     };
 
