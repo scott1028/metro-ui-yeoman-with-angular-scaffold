@@ -24,7 +24,7 @@ angular.module('appWordingEditorApp')
 
             $scope.xml_string_tag_store.push({
                 name: name,
-                value: value
+                value: value.replace(/\\n/g, '\n')
             });
         };
         $scope.$apply();
@@ -64,6 +64,9 @@ angular.module('appWordingEditorApp')
             downloadURL.href=url;
             downloadURL.download=file_name;         // 指定下載檔名
             downloadURL.click();
+        }
+        else{
+            alert('Please Open a XML File.')
         };
     };
 
@@ -98,7 +101,7 @@ angular.module('appWordingEditorApp')
         if(new_value && new_value.length > 0){
             for(var i in new_value){
                 if(new_value[i] != old_value[i]){
-                    $scope.xml.querySelector('[name=' + new_value[i].name + ']').textContent = new_value[i].value;
+                    $scope.xml.querySelector('[name=' + new_value[i].name + ']').textContent = new_value[i].value.replace(/\n/g, '\\n');
                 }
             };
 

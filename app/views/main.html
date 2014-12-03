@@ -35,10 +35,11 @@
     </thead>
     <tbody>
         <tr ng-repeat="row in xml_string_tag_store">
-            <th style="text-align: left; color: #1e7145;">{{row.name}}</th>
+            <th style="text-align: left; color: #1e7145; padding: auto; min-height: 35px;">{{row.name}}</th>
             <!-- <td style="text-align: left; color: #2b5797;" contenteditable="true">{{row.value}}</td> -->
-            <td style="text-align: left; color: #2b5797;">
-                <textarea style="text-align: left; color: #2b5797; width: 100%; border-width: 0px; resize:vertical;" contenteditable="true" ng-model="row.value"></textarea>
+            <td style="text-align: left; color: #2b5797; padding: 0px; min-height: 35px;">
+                <textarea ng-if="row.value.length <= 200" style="text-align: left; color: #2b5797; width: 100%; border-width: 0px; resize: vertical; height: 35px;" contenteditable="true" ng-model="row.value"></textarea>
+                <textarea ng-if="row.value.length > 200" style="text-align: left; color: #2b5797; width: 100%; border-width: 0px; resize: vertical; min-height: 200px;" contenteditable="true" ng-model="row.value"></textarea>
             </td>
         </tr>
     </tbody>
